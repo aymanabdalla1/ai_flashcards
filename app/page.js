@@ -10,6 +10,7 @@ export default function Home() {
         <title>Flashcard SaaS</title>
         <meta name="description" content="Create flashcards from your text with AI" />
       </Head>
+
       <AppBar position = "static">
         <Toolbar>
           <Typography variant="h6" style={{flexGrow: 1}}>
@@ -29,23 +30,27 @@ export default function Home() {
           textAlign:"center",
           my: 2
         }}>
-          <Typography variant="h2" gutterBottom>
+          <Typography variant="h2" component="h1" gutterBottom>
             Welcome to Flashcard Saas!
           </Typography>
-          <Typography variant="h5" gutterBottom>
-            {' '}
+          <Typography variant="h5" component="h2" gutterBottom>
             The easiest way to make flaschards from your text!
           </Typography>
-          <Button variance="contained" color="primary" sx={{mt: 2}}>
+          <Button variant="contained" color="primary" sx={{mt: 2, mr:2}}
+            href="/generate">
             Get Started
+          </Button>
+          <Button variant="outlined" color="primary" sx={{mt:2}}>
+            Learn More
           </Button>
         </Box>
 
-        <Box sx={{my:4}}>
-          <Typography variant="h2" gutterBottom>
+        <Box sx={{my:6}}>
+          <Typography variant="h4" component="h2" gutterBottom>
             Features
           </Typography>
-          <Grid container_spacing = {4}>
+
+          <Grid container spacing = {4}>
             <Grid item my={12} mx={4}>
               <Typography variant="h6" gutterBottom>
                 Easy Text Input!
@@ -74,13 +79,13 @@ export default function Home() {
           </Grid>
         </Box>
 
-        <Box sx={{my:4, textAlign:"center"}}>
-          <Typography variant="h4">
+        <Box sx={{my:6, textAlign:"center"}}>
+          <Typography variant="h4" component="h2" gutterBottom>
             Pricing
           </Typography>
 
           <Grid container_spacing = {4}>
-            <Grid item my={12} mx={4}>
+            <Grid item my={12} mx={6}>
               <Box sx={{p:3, border:"1px solid", borderColor:"grey.300", borderRadius: 2
               }}>
               <Typography variant="h5" gutterBottom>
@@ -96,6 +101,7 @@ export default function Home() {
               </Button>
               </Box>
 
+              <Grid item my={12} mx={6}></Grid>
               <Box sx={{p:3, border:"1px solid", borderColor:"grey.300", borderRadius: 2
               }}>
               <Typography variant="h5" gutterBottom>
@@ -110,17 +116,6 @@ export default function Home() {
                 Choose Pro
               </Button>
               </Box>
-
-              <Box>
-              <Typography variant="h6">
-                Accesible anywhere!
-              </Typography>
-              <Typography>
-                {' '}
-                Access your flashcards from any device, at any time, at any place!
-              </Typography>
-              </Box>
-
             </Grid>
           </Grid>
         </Box>

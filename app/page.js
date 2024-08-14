@@ -1,11 +1,11 @@
 import Image from "next/image";
-import getStripe from "../utils/get-stripejs";
+import getStripe from "./utils/get-stripe.js";
 import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
-import { Container, Toolbar, Typography, AppBar, Button } from "@mui/material";
+import { Container, Toolbar, Typography, AppBar, Button, Head } from "@mui/material";
 
 export default function Home() {
   return (
-    <Container maxWidth="lg">
+    <Container maxWidth="100vw">
       <Head>
         <title>Flashcard SaaS</title>
         <meta name="description" content="Create flashcards from your text with AI" />

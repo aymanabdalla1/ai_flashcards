@@ -23,8 +23,9 @@ export default function SignUpPage(){
             </Toolbar>
             </AppBar>
 
-            <Box display="flex" flexDirection="column" alignItems="center" justifyContent="center">
-                <Typography variance="h4"> Sign In </Typography>
+            <Box display="flex" flexDirection="column" alignItems="center" justifyContent="center"
+            sx={{textAlign:'center', my:4}}>
+                <Typography variant="h4" component="h1" gutterBottom> Sign In </Typography>
                 <SignIn/>
             </Box>
         </Container>

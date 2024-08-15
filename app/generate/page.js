@@ -1,7 +1,7 @@
 'use client'
 
 import { useUser } from "@clerk/nextjs"
-import { Card, CardContent, Container, Typography } from "@mui/material"
+import { Button, Card, CardContent, Container, DialogActions, DialogContent, Typography } from "@mui/material"
 import { useRouter } from "next/router"
 import { useState } from "react"
 
@@ -38,12 +38,14 @@ export default function Generate(){
         }
     }
 
-    //WORK ON THIS PART 51:00
-    // const handleCardclick = {id} => {
-    //     setFlipped (prev) => ({
-    //         ...prev,
-    //         {id} : !prev{id}
-    //     })
+    const handleCardclick = (id) => {
+        setFlipped((prev) => ({
+            ...prev,
+            [id] : !prev[id]
+        }))
+    }
+
+
     const handleOpen =() =>{setOpen(true)}
     const handleClose = () => {setOpen(false)}
 
@@ -103,33 +105,70 @@ export default function Generate(){
                     Generate FlashCards
                 </Button>
             </Box>
+
             {flashCards.length > 0 && (
-                <Box sx={{mt:4}}>
+                <Box sx={{mt:4, display: 'flex', justifyContent:'center'}}>
+                    <Button variant="contained" color="primary" onClick={handleOpenDialog}>
+                        Save FlashCards
+                    </Button>
+                </Box>
+            )}
+
+            <Dialog open={dialogOpen} onClose={handleCloseDialog}>
+                <DialogTitle>
+                    Save FlashCard Set
+                </DialogTitle>
+                <DialogContent>
+                <DialogContentText>
+                    Please enter a name for your flashcard set!
+                </DialogContentText>
+                <TextField
+                    autofocus
+                    margin='dense'
+                    label='Set Name'
+                    type='text'
+                    fullWidth
+                    value={setName}
+                    onChange={(e)=>setName(e.target.value)}/>
+                    </DialogContent>
+                    <DialogActions>
+                        <Button onCick={handleCloseDialog}>Cancel</Button>
+                        <Button onClick={saveFlashcards} color="primary">Save</Button>
+                    </DialogActions>
+            </Dialog>
+
+            {flashCards.length > 0 && (
+                <Box sx={{mt:4, display:"flex", flexDirection:"column", alignItems: "center"
+                }}>
                     <Typography variant='h5' component='h2' gutterBottom>
-                        Generate Flashcards
+                        FlashCard Preview
                     </Typography>
-                    <Grid container_spacing={2}>
+                <Container maxWidth="md">
+                    <Grid container_spacing={3} sx={{mt:4}}>
                         {flashCards.map((flashcard,index)=> (
                             <Grid item xs={12} sm={6} md={4} key={index}>
                                 <Card>
+                                    <CardActionArea onClick={()=>handleCardclick(flashcard.id)}>
                                     <CardContent>
-                                        <Typography variant='h6'>
-                                            Front: 
-                                        </Typography>
-                                        <Typography>
+                                        <Box sx={{
+                                        //watch video at 1:05:00
+                                        }}>
+                                        <div><div>
+                                        <Typography variant='h5' component='div'>
                                             {flashcard.front}
                                         </Typography>
-                                        <Typography variant='h6' sx={{mt:2}}>
-                                            Back
-                                        </Typography>
-                                        <Typography>
+                                        </div><div>
+                                        <Typography variant='h5' component='div'>
                                             {flashcard.back}
                                         </Typography>
+                                        </div></div></Box>
                                     </CardContent>
+                                    </CardActionArea>
                                 </Card>
                             </Grid>
                         ))}
                     </Grid>
+                </Container>
                 </Box>
             )}
         </Container>

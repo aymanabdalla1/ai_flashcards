@@ -4,6 +4,8 @@ import { useUser } from "@clerk/nextjs"
 import { Button, Card, CardContent, Container, DialogActions, DialogContent, Typography } from "@mui/material"
 import { useRouter } from "next/router"
 import { useState } from "react"
+import { db } from '@/firebase'
+import { doc, getDoc, collection, setDoc, writeBatch} from 'firebase/firestore'
 
 export default function Generate(){
     const [isLoaded, isSignedin, user] = useUser()

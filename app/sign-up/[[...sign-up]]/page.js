@@ -3,7 +3,7 @@ import {AppBar, Button, Container, Toolbar, Typography} from '@mui/material'
 
 export default function SignUpPage(){
     return(
-        <Container maxWidth="sm">       
+        <Container maxWidth="100vw">       
             <AppBar position='static' sx={{backgroundColor:"#3f5135"}}>
             <Toolbar>
                 <Typography variance="h6" sx={{flexGrow:1}}>

@@ -8,7 +8,7 @@ import { useRouter, useSearchParams } from "next/navigation"
 
 export default function flashcards(){
     const { isLoaded, isSignedIn, user} = useUser()
-    const [flaschards, setFlashCards] = useState([])
+    const [flashcards, setFlashCards] = useState([])
     const [flipped, setFlipped] = useState({})
 
     const searchParams = useSearchParams()
@@ -19,7 +19,7 @@ export default function flashcards(){
             if (!search || !user) return
 
             const colRef = collection(doc(dollection(db,'users'), user.id), search)
-            const docs = await getDocs(colRef)
+            const docs = await getDoc(colRef)
             const flashcards = []
             docs.forEach((doc) => {
                 flashcards.push({id:doc.id, ...doc.data()})

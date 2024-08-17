@@ -129,61 +129,62 @@ export default function Home() {
         </Grid>
       </Box>
 
-      <Box sx={{ my: 6, textAlign: "center" }}>
-        <Typography variant="h4" component="h2" gutterBottom>
-          Pricing
-        </Typography>
-
-        <Grid container_spacing={4}>
-          <Grid item my={12} mx={6}>
-            <Box
+      <Box sx={{ my: 6, textAlign: 'center' }}>
+        <Typography variant="h4" component="h2" gutterBottom sx={{ fontWeight: 'bold', color: '#00796b' }}>Pricing</Typography>
+        <Grid container spacing={4}>
+          <Grid item xs={12} md={6}>
+            <Card 
               sx={{
                 p: 3,
-                border: "1px solid",
-                borderColor: "grey.300",
+                border: '1px solid',
+                borderColor: 'grey.300',
                 borderRadius: 2,
+                backgroundColor: '#fff',
+                boxShadow: 3,
+                transition: '0.3s',
+                '&:hover': { transform: 'scale(1.05)' }
               }}
             >
-              <Typography variant="h5" gutterBottom>
+              <Typography variant='h5' gutterBottom sx={{ fontWeight: 'bold' }}>
                 Basic
               </Typography>
-              <Typography variant="h6" gutterBottom>
-                {" "}
-                $5/month
+              <Typography variant='h6' gutterBottom>
+                $5 / month
               </Typography>
               <Typography>
-                {" "}
                 Access to basic flashcard features and limited storage.
               </Typography>
-              <Button variance="contained" colors="primary" sx={{ mt: 2 }}>
+              <Button variant="contained" color="primary" sx={{ mt: 2 }}>
                 Choose Basic
               </Button>
-            </Box>
-
-            <Grid item my={12} mx={6}></Grid>
-            <Box
+            </Card>
+          </Grid>
+          <Grid item xs={12} md={6}>
+            <Card 
               sx={{
                 p: 3,
-                border: "1px solid",
-                borderColor: "grey.300",
+                border: '1px solid',
+                borderColor: 'grey.300',
                 borderRadius: 2,
+                backgroundColor: '#fff',
+                boxShadow: 3,
+                transition: '0.3s',
+                '&:hover': { transform: 'scale(1.05)' }
               }}
             >
-              <Typography variant="h5" gutterBottom>
+              <Typography variant='h5' gutterBottom sx={{ fontWeight: 'bold' }}>
                 Pro
               </Typography>
-              <Typography variant="h6" gutterBottom>
-                {" "}
-                $10/month
+              <Typography variant='h6' gutterBottom>
+                $10 / month
               </Typography>
               <Typography>
-                {" "}
-                Unlimited flaschards and storage, with piority support.
+                Unlimited flashcards and storage, with priority support.
               </Typography>
-              <Button variance="contained" colors="primary" sx={{ mt: 2 }}>
+              <Button variant="contained" color="primary" sx={{ mt: 2 }} onClick={handleSubmit}>
                 Choose Pro
               </Button>
-            </Box>
+            </Card>
           </Grid>
         </Grid>
       </Box>

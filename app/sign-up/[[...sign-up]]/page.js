@@ -8,9 +8,10 @@ export default function SignUpPage() {
     <Container maxWidth="100vw">
       <AppBar position="static" sx={{ backgroundColor: "#3f5135" }}>
         <Toolbar>
-          <Typography variance="h6" sx={{ flexGrow: 1,               flexGrow: 1,
-              fontWeight: 'bold',
-              color: '#fff'}}>
+          <Typography
+            variance="h6"
+            sx={{ flexGrow: 1, flexGrow: 1, fontWeight: "bold", color: "#fff" }}
+          >
             FlashCard SaaS
           </Typography>
           <Button color="inherit">
@@ -32,13 +33,22 @@ export default function SignUpPage() {
         flexDirection="column"
         alignItems="center"
         justifyContent="center"
-        sx={{ textAlign: "center", my: 4,           backgroundColor: '#fff', 
-            padding: '40px', 
-            borderRadius: '8px', 
-            boxShadow: 3, 
-            marginTop: '40px'}}
+        sx={{
+          textAlign: "center",
+          my: 4,
+          backgroundColor: "#fff",
+          padding: "40px",
+          borderRadius: "8px",
+          boxShadow: 3,
+          marginTop: "40px",
+        }}
       >
-        <Typography variant="h4" component="h1" gutterBottom sx={{ fontWeight: 'bold', color: '#3f51b5' }}>
+        <Typography
+          variant="h4"
+          component="h1"
+          gutterBottom
+          sx={{ fontWeight: "bold", color: "#3f51b5" }}
+        >
           {" "}
           Sign Up{" "}
         </Typography>

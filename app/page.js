@@ -1,21 +1,27 @@
 'use client';
 
 import Image from "next/image";
-import getStripe from "../utils/get-stripe.js";
+import getStripe from "@/utils/get-stripe.js";
+import Head from "next/head";
 import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
-import { Container, Toolbar, Typography, AppBar, Button, Head, Box, Grid } from "@mui/material";
+import { Container, Toolbar, Typography, AppBar, Button, Box, Grid } from "@mui/material";
 
 export default function Home() {
   return (
-    <Container maxWidth="100vw">
+    <Container maxWidth="100vw"       sx={{ 
+      background: 'linear-gradient(to bottom right, #e0f7fa, #80deea)', // Soft gradient background
+      minHeight: '100vh', // Ensure full height
+      fontFamily: 'Arial, sans-serif',
+      padding: '20px' // Add some padding
+    }}>
       <Head>
         <title>Flashcard SaaS</title>
         <meta name="description" content="Create flashcards from your text with AI" />
       </Head>
 
-      <AppBar position = "static">
+      <AppBar position = "static" sx={{ backgroundColor: '#00796b' }}>
         <Toolbar>
-          <Typography variant="h6" style={{flexGrow: 1}}>
+          <Typography variant="h6" style={{flexGrow: 1, fontWeight: 'bold', color: '#fff' }}>
             Flashcard SaaS
           </Typography>
           <SignedOut>
@@ -32,7 +38,7 @@ export default function Home() {
           textAlign:"center",
           my: 2
         }}>
-          <Typography variant="h2" component="h1" gutterBottom>
+          <Typography variant="h2" component="h1" gutterBottom sx={{ fontWeight: 'bold'}}>
             Welcome to Flashcard Saas!
           </Typography>
           <Typography variant="h5" component="h2" gutterBottom>

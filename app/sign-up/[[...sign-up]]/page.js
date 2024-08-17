@@ -1,30 +1,62 @@
-import { SignUp } from "@clerk/nextjs";
-import { AppBar, Button, Container, Toolbar, Typography } from "@mui/material";
-import Link from "next/link";
-import React from "react";
+import { SignUp } from '@clerk/nextjs'
+import {AppBar, Button, Container, Toolbar, Typography, Box} from '@mui/material'
+import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
+import Link from 'next/link'
+import React from 'react'
 
-export default function SignUpPage() {
-  return (
-    <Container maxWidth="100vw">
-      <AppBar position="static" sx={{ backgroundColor: "#3f5135" }}>
+export default function SignUpPage(){
+    return(
+        <Container
+        maxWidth="100vw"
+        sx={{
+          background: "linear-gradient(to bottom right, #16E0BD, #78C3FB)", // Soft gradient background
+          minHeight: "100vh", // Ensure full height
+          fontFamily: "Arial, sans-serif",
+          padding: "20px", // Add some padding
+        }}
+      >      
+      <AppBar position="static" sx={{ backgroundColor: "#26547C" }}>
         <Toolbar>
           <Typography
-            variance="h6"
-            sx={{ flexGrow: 1, flexGrow: 1, fontWeight: "bold", color: "#fff" }}
+            variant="h6"
+            style={{ flexGrow: 1, fontWeight: "bold", color: "#fff" }}
           >
-            FlashCard SaaS
+            Flashcard SaaS
           </Typography>
-          <Button color="inherit">
-            <Link href="/sign-in" passHref>
-              Login
-            </Link>
-          </Button>
-
-          <Button color="inherit">
-            <Link href="/sign-up" passHref>
-              SignUp
-            </Link>
-          </Button>
+          <SignedOut>
+            <Button color="inherit" href="/sign-in" 
+                variant="contained"
+                sx={{
+                  mr:1,
+                  borderRadius: 1,
+                  color: "#26547C",
+                  backgroundColor: "#FCFCFC",
+                  padding: "10px 30px",
+                  fontSize: "15px",
+                  fontWeight: "bold",
+                }}
+              >
+              {" "}
+              Login{" "}
+            </Button>
+            <Button color="inherit" href="/sign-up" 
+                variant="contained"
+                sx={{
+                  borderRadius: 1,
+                  color: "#26547C",
+                  backgroundColor: "#FCFCFC",
+                  padding: "10px 30px",
+                  fontSize: "15px",
+                  fontWeight: "bold",
+                }}
+              >
+              {" "}
+              Sign Up{" "}
+            </Button>
+          </SignedOut>
+          <SignedIn>
+            <UserButton />
+          </SignedIn>
         </Toolbar>
       </AppBar>
 
@@ -36,18 +68,16 @@ export default function SignUpPage() {
         sx={{
           textAlign: "center",
           my: 4,
-          backgroundColor: "#fff",
           padding: "40px",
           borderRadius: "8px",
-          boxShadow: 3,
           marginTop: "40px",
         }}
       >
-        <Typography
+            <Typography
           variant="h4"
           component="h1"
           gutterBottom
-          sx={{ fontWeight: "bold", color: "#3f51b5" }}
+          sx={{ fontWeight: "bold", color: "#26547C" }}
         >
           {" "}
           Sign Up{" "}

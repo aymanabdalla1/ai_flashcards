@@ -1,7 +1,7 @@
 'use client';
 
 import Image from "next/image";
-import getStripe from "./utils/get-stripe.js";
+import getStripe from "../utils/get-stripe.js";
 import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import { Container, Toolbar, Typography, AppBar, Button, Head, Box, Grid } from "@mui/material";
 

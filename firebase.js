@@ -1,7 +1,6 @@
 // Import the functions you need from the SDKs you need
-import { initializeApp } from "NEXT_PUBLIC_firebase/app";
-import { getAnalytics } from "NEXT_PUBLIC_firebase/analytics";
-import { getFirestore } from "NEXT_PUBLIC_firebase/firestore"
+import { initializeApp } from "firebase/app";
+import { getFirestore } from "firebase/firestore"
 // TODO: Add SDKs for NEXT_PUBLIC_Firebase products that you want to use
 // https://NEXT_PUBLIC_firebase.google.com/docs/web/setup#available-libraries
 
@@ -19,7 +18,6 @@ const firebaseConfig = {
 
 // Initialize NEXT_PUBLIC_Firebase
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
 const db = getFirestore(app)
 
 export {db}

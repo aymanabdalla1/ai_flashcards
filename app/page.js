@@ -122,6 +122,7 @@ export default function Home() {
         </Typography>
         <Button
                 variant="contained"
+                href="/generate"
                 sx={{
                   mt: 2,
                   borderRadius: 35,

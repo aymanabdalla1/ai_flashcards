@@ -1,6 +1,7 @@
 import { SignUp } from '@clerk/nextjs'
 import {AppBar, Button, Container, Toolbar, Typography, Box} from '@mui/material'
 import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
+import QuizIcon from '@mui/icons-material/Quiz';
 import Link from 'next/link'
 import React from 'react'
 
@@ -17,6 +18,9 @@ export default function SignUpPage(){
       >      
       <AppBar position="static" sx={{ backgroundColor: "#26547C" }}>
         <Toolbar>
+        <Link href="/" passHref>
+        <QuizIcon fontSize="large" sx={{ color: "#fff", mr:1}} />
+        </Link>
           <Typography
             variant="h6"
             style={{ flexGrow: 1, fontWeight: "bold", color: "#fff" }}

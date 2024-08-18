@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import Link from "next/link";
 import getStripe from "@/utils/get-stripe.js";
 import Head from "next/head";
 import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
@@ -15,6 +15,7 @@ import {
   Card,
   CardContent,
 } from "@mui/material";
+import QuizIcon from '@mui/icons-material/Quiz';
 
 export default function Home() {
   const handleSubmit = async () => {
@@ -59,10 +60,13 @@ export default function Home() {
 
       <AppBar position="static" sx={{ backgroundColor: "#26547C" }}>
         <Toolbar>
+        <Link href="/" passHref>
+        <QuizIcon fontSize="large" sx={{ color: "#fff", mr:1}} />
+        </Link>
           <Typography
             variant="h6"
             style={{ flexGrow: 1, fontWeight: "bold", color: "#fff" }}
-          >
+          > 
             Flashcard SaaS
           </Typography>
           <SignedOut>

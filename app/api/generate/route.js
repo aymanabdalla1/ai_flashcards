@@ -20,19 +20,21 @@ export async function POST (req) {
       baseURL: "https://openrouter.ai/api/v1",
       apiKey: process.env.OPENROUTER_API_KEY,
   })
-    const data = await req.text();
-    const completion = await openai.chat.completions.create({
-        messages: [
-          { role: "system", content: systemPrompt },
-            {role: "user", content: data}
-        ],
-        model: "meta-llama/llama-3.1-8b-instruct:free",
-        response_format: {type: 'json_object'},
-    })
-    
+
+  const data = await req.text();
+
+  const completion = await openai.chat.completions.create({
+    messages: [
+      { role: 'system', content: systemPrompt },
+      { role: 'user', content: data },
+    ],
+    model: "meta-llama/llama-3.1-8b-instruct:free",
+    response_format: { type: 'json_object' },
+  });
+
   // Parse the JSON response from the OpenAI API
-  const flashcards = JSON.parse(completion.choices[0].message.content)
+  const flashcards = JSON.parse(completion.choices[0].message.content);
 
   // Return the flashcards as a JSON response
-  return NextResponse.json(flashcards.flashcards)
+  return NextResponse.json(flashcards.flashcards);
 }

@@ -22,6 +22,8 @@ import {
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { doc, collection, setDoc, getDoc, writeBatch } from "firebase/firestore";
+import QuizIcon from '@mui/icons-material/Quiz';
+import Link from 'next/link'
 
 export default function Generate() {
   const { isLoaded, isSignedIn, user } = useUser();
@@ -40,7 +42,9 @@ export default function Generate() {
   
     try {
       const response = await fetch('/api/generate', {
-        method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'
+    },
         body: text,
       })
   
@@ -123,7 +127,9 @@ export default function Generate() {
           alignItems: 'center',
           width: '100%',
         }}
-      >
+      >        <Link href="/" passHref>
+      <QuizIcon fontSize="large" sx={{ color: "#fff", mr:1}} />
+      </Link>
                <Typography
           variant="h4"
           component="h2"

@@ -105,15 +105,13 @@ export default function Generate() {
   };
 
   return (
-    <Container 
-      maxWidth="md" 
-      sx={{ 
-        background: 'linear-gradient(to bottom right, #e0f7fa, #80deea)', // Gradient background
-        minHeight: '100vh', // Ensure full height
-        padding: '20px', 
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center'
+    <Container
+      maxWidth="100vw"
+      sx={{
+        background: "linear-gradient(to bottom right, #16E0BD, #78C3FB)", // Soft gradient background
+        minHeight: "100vh", // Ensure full height
+        fontFamily: "Arial, sans-serif",
+        padding: "20px", // Add some padding
       }}
     >
       <Box
@@ -126,10 +124,15 @@ export default function Generate() {
           width: '100%',
         }}
       >
-        <Typography variant="h4" sx={{ fontWeight: 'bold', color: '#00796b', mb: 2 }}>
+               <Typography
+          variant="h4"
+          component="h2"
+          gutterBottom
+          sx={{ fontWeight: "bold", color: "#333", textAlign: "center", mb:2 }}
+        >
           Generate Flashcards
         </Typography>
-        <Paper sx={{ p: 4, width: '100%', boxShadow: 3, borderRadius: 2 }}>
+        <Paper sx={{ p: 4, width: '50%', boxShadow: 3, borderRadius: 2 }}>
           <TextField
             value={text}
             onChange={(e) => setText(e.target.value)}
@@ -147,7 +150,15 @@ export default function Generate() {
             color="primary" 
             onClick={handleSubmit} 
             fullWidth
-            sx={{ boxShadow: 2 }}
+
+            sx={{
+                mt: 2,
+                borderRadius: 35,
+                backgroundColor: "#EF476F",
+                padding: "15px 20px",
+                fontSize: "15px",
+                boxShadow: 2,
+              }}
           >
             Submit
           </Button>

@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server'
-import Stripe from '@stripe/react-stripe-js'
+// import Stripe from '@stripe/react-stripe-js'
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY)
+// const stripe = new Stripe(process.env.STRIPE_SECRET_KEY)
 
 const formatAmountForStripe = (amount) => {
     return Math.round(amount * 100)

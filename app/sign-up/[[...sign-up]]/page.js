@@ -70,7 +70,7 @@ export default function SignUpPage(){
           my: 4,
           padding: "40px",
           borderRadius: "8px",
-          marginTop: "40px",
+          marginTop: "10px",
         }}
       >
             <Typography

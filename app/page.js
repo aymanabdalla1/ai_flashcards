@@ -101,6 +101,21 @@ export default function Home() {
             </Button>
           </SignedOut>
           <SignedIn>
+          <Button color="inherit" href="/flashcards" 
+                variant="contained"
+                sx={{
+                  borderRadius: 1,
+                  color: "#26547C",
+                  backgroundColor: "#FCFCFC",
+                  padding: "10px 30px",
+                  fontSize: "15px",
+                  fontWeight: "bold",
+                  mr:1
+                }}
+              >
+              {" "}
+              My Cards{" "}
+            </Button>
             <UserButton />
           </SignedIn>
         </Toolbar>

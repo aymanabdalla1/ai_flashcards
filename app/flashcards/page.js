@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { collection, doc, getDoc, setDoc } from "firebase/firestore";
 import { db } from "@/firebase";
 import { useRouter } from 'next/navigation';
-import { Card, CardActionArea, CardContent, Container, Grid, Typography } from "@mui/material";
+import { Card, CardActionArea, CardContent, Container, Grid, Typography, Button} from "@mui/material";
 
 export default function Flashcards() {
   const { isLoaded, isSignedIn, user } = useUser();
@@ -37,10 +37,12 @@ export default function Flashcards() {
 
   return (
     <Container 
-      maxWidth="lg" 
+      maxWidth="100vw" 
       sx={{ 
-        background: 'linear-gradient(to bottom right, #e0f7fa, #80deea)', // Gradient background
-        minHeight: '100vh', // Ensure full height
+        background: "linear-gradient(to bottom right, #16E0BD, #78C3FB)", // Soft gradient background
+        minHeight: "100vh", // Ensure full height
+        fontFamily: "Arial, sans-serif",
+        padding: "20px", // Add some padding
         padding: '20px', 
         display: 'flex',
         flexDirection: 'column',
@@ -48,9 +50,24 @@ export default function Flashcards() {
         justifyContent: 'center'
       }}
     >
-      <Typography variant="h4" sx={{ fontWeight: 'bold', color: '#00796b', mb: 4, textAlign: 'center' }}>
+      <Typography variant="h4" sx={{ fontWeight: 'bold', color: '#26547C', mb: 4, textAlign: 'center' }}>
         Your Flashcard Collections
       </Typography>
+      <Button color="inherit" href="/" 
+                variant="contained"
+                sx={{
+                  borderRadius: 1,
+                  color: "#26547C",
+                  backgroundColor: "#FCFCFC",
+                  padding: "10px 30px",
+                  fontSize: "15px",
+                  fontWeight: "bold",
+                  mb: 2,
+                }}
+              >
+              {" "}
+              Home{" "}
+            </Button>
       <Grid container spacing={3}>
         {flashcards.map((flashcard, index) => (
           <Grid item xs={12} sm={6} md={4} key={index}>

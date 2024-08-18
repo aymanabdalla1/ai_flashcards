@@ -35,30 +35,42 @@ export default function Generate() {
   const router = useRouter();
 
   const handleSubmit = async () => {
-    if (!text.trim()) {
-      alert('Please enter some text to generate flashcards.')
-      return
-    }
-  
-    try {
-      const response = await fetch('/api/generate', {
-    headers: {
-        'Content-Type': 'application/json'
-    },
-        body: text,
+    fetch('/api/generate', {
+      method: 'POST',
+      body: text,
+    })
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error('Failed to fetch flashcards');
+        }
+        return res.json();
       })
+      .then((data) => setFlashcards(data));
+  };
+
+//   const handleSubmit = async () => {
+//     if (!text.trim()) {
+//       alert('Please enter some text to generate flashcards.')
+//       return
+//     }
   
-      if (!response.ok) {
-        throw new Error('Failed to generate flashcards')
-      }
+//     try {
+//       const response = await fetch('api/generate', {
+//         method: 'POST',
+//         body: text,
+//       })
   
-      const data = await response.json()
-      setFlashcards(data)
-    } catch (error) {
-      console.error('Error generating flashcards:', error)
-      alert('An error occurred while generating flashcards. Please try again.')
-    }
-  }
+//       if (!response.ok) {
+//         throw new Error('Failed to generate flashcards')
+//       }
+  
+//       const data = await response.json()
+//       setFlashcards(data)
+//     } catch (error) {
+//       console.error('Error generating flashcards:', error)
+//       alert('An error occurred while generating flashcards. Please try again.')
+//     }
+//   }
 
   const handleCardClick = (id) => {
     setFlipped((prev) => ({
@@ -173,7 +185,7 @@ export default function Generate() {
 
       {flashcards.length > 0 && (
         <Box sx={{ mt: 4, width: '100%' }}>
-          <Typography variant="h5" component="h2" gutterBottom sx={{ color: '#00796b', textAlign: 'center' }}>
+          <Typography variant="h4" component="h2" gutterBottom sx={{ color: '#26547C', textAlign: 'center', fontWeight:'bold' }}>
             Flashcards Preview
           </Typography>
           <Grid container spacing={3}>
@@ -219,12 +231,12 @@ export default function Generate() {
                       >
                         <div>
                           <div>
-                            <Typography variant="h5" component="div" sx={{ color: '#00796b' }}>
+                            <Typography variant="h5" component="div" sx={{ color: '#26547C' }}>
                               {flashcard.front}
                             </Typography>
                           </div>
                           <div>
-                            <Typography variant="h5" component="div" sx={{ color: '#00796b' }}>
+                            <Typography variant="h5" component="div" sx={{ color: '#26547C' }}>
                               {flashcard.back}
                             </Typography>
                           </div>
@@ -237,7 +249,19 @@ export default function Generate() {
             ))}
           </Grid>
           <Box sx={{ mt: 4, display: 'flex', justifyContent: 'center' }}>
-            <Button variant="contained" color="secondary" onClick={handleOpen} sx={{ boxShadow: 2 }}>
+            <Button
+                variant="contained"
+                color="primary"
+                onClick={handleOpen}
+                sx={{
+                  mt: 2,
+                  borderRadius: 35,
+                  boxShadow: 2,
+                  backgroundColor: "#EF476F",
+                  padding: "15px 40px",
+                  fontSize: "15px",
+                }}
+              >
               Save 
             </Button>
           </Box>

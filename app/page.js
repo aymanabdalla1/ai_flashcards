@@ -67,7 +67,7 @@ export default function Home() {
             variant="h6"
             style={{ flexGrow: 1, fontWeight: "bold", color: "#fff" }}
           > 
-            Flashcard SaaS
+            FlashyCard
           </Typography>
           <SignedOut>
             <Button color="inherit" href="/sign-in" 
@@ -134,7 +134,7 @@ export default function Home() {
           gutterBottom
           sx={{ fontWeight: "bold" }}
         >
-          Welcome to Flashcard Saas!
+          <QuizIcon fontSize="1000" sx={{ color: "#fff", mr:1}} /> FlashyCard
         </Typography>
         <Typography variant="h5" component="h2" gutterBottom>
           The easiest way to make flaschards from your text!
